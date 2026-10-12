@@ -1,0 +1,8 @@
+.venv/
+hadoop/
+checkpoints/
+__pycache__/
+.git/
+.env
+docs/
+*.log

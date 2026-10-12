@@ -1,0 +1,8 @@
+services:
+  spark-streaming:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/.venv
