@@ -7,6 +7,7 @@ from configs import (
     BUILDING_SENSORS_TOPIC,
     TEMPERATURE_ALERTS_TOPIC,
     HUMIDITY_ALERTS_TOPIC,
+    ALERTS_TOPIC,
 )
 
 # Створення клієнта Kafka
@@ -24,7 +25,12 @@ replication_factor = 1
 
 new_topics = [
     NewTopic(name=topic_name, num_partitions=num_partitions, replication_factor=replication_factor)
-    for topic_name in (BUILDING_SENSORS_TOPIC, TEMPERATURE_ALERTS_TOPIC, HUMIDITY_ALERTS_TOPIC)
+    for topic_name in (
+        BUILDING_SENSORS_TOPIC,
+        TEMPERATURE_ALERTS_TOPIC,
+        HUMIDITY_ALERTS_TOPIC,
+        ALERTS_TOPIC,
+    )
 ]
 
 # Створення топіків
