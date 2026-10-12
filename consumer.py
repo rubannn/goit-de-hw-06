@@ -15,7 +15,7 @@ consumer = KafkaConsumer(
     value_deserializer=JSONDeserializer(),
     auto_offset_reset="latest",  # Зчитування лише нових повідомлень
     enable_auto_commit=True,  # Автоматичне підтвердження зчитаних повідомлень
-    group_id="alerts_display_group_v2",  # Ідентифікатор групи споживачів
+    group_id="alerts_display_group_v3",  # Ідентифікатор групи споживачів
 )
 
 # Підписка на топік зі сповіщеннями від Spark Structured Streaming
