@@ -18,3 +18,4 @@ my_name = os.environ.get("SENSOR_OWNER_NAME", "mruban")
 BUILDING_SENSORS_TOPIC = f"{my_name}_building_sensors"
 TEMPERATURE_ALERTS_TOPIC = f"{my_name}_temperature_alerts"
 HUMIDITY_ALERTS_TOPIC = f"{my_name}_humidity_alerts"
+ALERTS_TOPIC = f"{my_name}_alerts"

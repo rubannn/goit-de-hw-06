@@ -1,6 +1,8 @@
+import json
+
 from kafka import KafkaConsumer
 
-from configs import kafka_config, TEMPERATURE_ALERTS_TOPIC, HUMIDITY_ALERTS_TOPIC
+from configs import kafka_config, ALERTS_TOPIC
 from serializers import JSONDeserializer
 
 # Створення Kafka Consumer
@@ -16,15 +18,16 @@ consumer = KafkaConsumer(
     group_id="alerts_display_group_v2",  # Ідентифікатор групи споживачів
 )
 
-# Підписка на топіки зі сповіщеннями
-consumer.subscribe([TEMPERATURE_ALERTS_TOPIC, HUMIDITY_ALERTS_TOPIC])
+# Підписка на топік зі сповіщеннями від Spark Structured Streaming
+consumer.subscribe([ALERTS_TOPIC])
 
-print(f"Subscribed to topics '{TEMPERATURE_ALERTS_TOPIC}' and '{HUMIDITY_ALERTS_TOPIC}'")
+print(f"Subscribed to topic '{ALERTS_TOPIC}'")
 
 # Обробка повідомлень з топіків
 try:
     for message in consumer:
-        print(f"[{message.topic}] Alert: {message.value}")
+        print(f"[{message.topic}] Alert:")
+        print(json.dumps(message.value, indent=2, ensure_ascii=False))
 except KeyboardInterrupt:
     print("Stopping alert consumer...")
 except Exception as e:
