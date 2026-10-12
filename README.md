@@ -1,6 +1,6 @@
 # goit-de-hw-06 — Spark Structured Streaming + Kafka
 
-Домашнє завдання до теми «Spark streaming» (опис — [docs/task.md](docs/task.md)).
+Домашнє завдання до теми «Spark streaming».
 
 Потік даних сенсорів (`producer.py`) пишеться в Kafka, `spark_streaming.py` зчитує
 його Spark Structured Streaming, рахує середню температуру та вологість у sliding
